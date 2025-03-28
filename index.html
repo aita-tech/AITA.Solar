@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сонячні панелі Jinko та HT-SAAE - Енергія Майбутнього</title>
+    <meta name="description" content="Сонячні панелі Jinko та HT-SAAE за 4600 грн. Доставка по Україні. Гарантія 12 років. Економія до 60% на електроенергії вже з першого місяця.">
+    <meta name="keywords" content="сонячні панелі, Jinko Solar, HT-SAAE, сонячна енергія, відновлювана енергія, Україна">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aita.today/">
+    <meta property="og:title" content="Сонячні панелі Jinko та HT-SAAE - Енергія Майбутнього">
+    <meta property="og:description" content="Сонячні панелі Jinko та HT-SAAE за 4600 грн. Доставка по Україні. Гарантія 12 років.">
+    <meta property="og:image" content="https://aita.today/Jinko Solar Panels.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aita.today/">
+    <meta property="twitter:title" content="Сонячні панелі Jinko та HT-SAAE - Енергія Майбутнього">
+    <meta property="twitter:description" content="Сонячні панелі Jinko та HT-SAAE за 4600 грн. Доставка по Україні. Гарантія 12 років.">
+    <meta property="twitter:image" content="https://aita.today/Jinko Solar Panels.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aita.today/">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+    
     <link rel="icon" type="image/png" href="Untitled-8.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8P74RKCC5N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8P74RKCC5N');
-</script>
 </head>
 <body>
     <header>
         <nav>
             <a href="#" class="logo">
-                <img src="Untitled-8.png" alt="AITA Solar Logo" class="logo-img">
+                <img src="Untitled-8.png" alt="Логотип AITA Solar" class="logo-img" loading="eager">
                 <span>AITA Solar</span>
             </a>
             <div class="nav-right">
@@ -38,7 +53,7 @@
                         Telegram
                     </a>
                 </div>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Відкрити меню" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -57,8 +72,8 @@
                     <p>Оплата при отриманні. Доставка зі складу по Україні.</p>
                 </div>
                 <div class="hero-cta-group">
-                    <a href="#order" class="hero-button-primary">Замовити панелі</a>
-                    <a href="https://t.me/ClarsSolarbot?start=w37787867" class="hero-button-secondary">
+                    <a href="#order" class="hero-button-primary" aria-label="Замовити сонячні панелі">Замовити панелі</a>
+                    <a href="https://t.me/ClarsSolarbot?start=w37787867" class="hero-button-secondary" aria-label="Отримати консультацію в Telegram">
                         <i class="fab fa-telegram"></i>
                         Отримати консультацію
                     </a>
@@ -94,7 +109,7 @@
                     <a href="#order" class="cta-button primary">Замовити</a>
                 </div>
                 <div class="product-image">
-                    <img src="Jinko Solar Panels.png" alt="Jinko Solar Panels">
+                    <img src="Jinko Solar Panels.png" alt="Сонячні панелі Jinko Solar - високоефективні двосторонні модулі з технологією N-type" loading="lazy">
                 </div>
             </div>
         </div>
@@ -123,7 +138,7 @@
                     <a href="#order" class="cta-button primary">Замовити</a>
                 </div>
                 <div class="product-image">
-                    <img src="Untitled-6.png" alt="HT-SAAE Solar Panels">
+                    <img src="Untitled-6.png" alt="Сонячні панелі HT-SAAE - потужні модулі з технологією Half-Cell та двосторонньою генерацією" loading="lazy">
                 </div>
             </div>
         </div>
@@ -290,19 +305,21 @@
                 <div class="form-wrapper">
                     <h2>Замовити панелі</h2>
                     <p class="form-subtitle">Отримайте розрахунок та консультацію</p>
-                    <form action="https://formspree.io/f/xnnpzkzw" method="POST" class="contact-form">
+                    <form action="https://formspree.io/f/xzblzknv" method="POST" class="contact-form" aria-label="Форма замовлення сонячних панелей">
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Ім'я та прізвище</label>
-                                <input type="text" name="name" required placeholder="Введіть ваше ім'я">
+                                <label for="name">Ім'я та прізвище</label>
+                                <input type="text" id="name" name="name" required placeholder="Введіть ваше ім'я" aria-required="true">
                             </div>
                             <div class="form-group">
-                                <label>Номер телефону</label>
-                                <input type="tel" name="phone" required placeholder="+380">
+                                <label for="phone">Номер телефону</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+380" aria-required="true" pattern="[0-9+]+">
                             </div>
                         </div>
+                        <input type="hidden" name="_next" value="https://aita.solar/thankyou">
+                        <input type="hidden" name="_subject" value="Нова заявка з сайту AITA Solar">
                         <button type="submit" class="submit-button">
-                            <span>Отримати розрахунок</span>
+                            <span>Замовити</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </form>
@@ -403,6 +420,8 @@
         const body = document.body;
         
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
             nav.classList.toggle('active');
             body.classList.toggle('nav-active');
         });
@@ -414,6 +433,7 @@
                 !e.target.closest('.mobile-menu-btn')) {
                 nav.classList.remove('active');
                 body.classList.remove('nav-active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -422,7 +442,17 @@
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
                 body.classList.remove('nav-active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
+        });
+
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                body.classList.remove('nav-active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
         });
 
         // Smooth scrolling for anchor links
