@@ -399,6 +399,35 @@
                 justify-content: flex-start;
             }
         }
+
+        .calculator-results {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .calculator-disclaimer {
+            font-size: 0.75rem;
+            color: #666;
+            margin: 0.75rem 0;
+            line-height: 1.3;
+            text-align: center;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-disclaimer {
+                font-size: 0.35rem;
+                margin: 0.25rem 0;
+                line-height: 1.1;
+            }
+        }
+
+        .result-item {
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -559,17 +588,17 @@
             <div class="calculator-grid">
                 <div class="calculator-form">
                     <div class="form-group">
-                        <label for="region">Оберіть місто:</label>
+                        <label for="region">Оберіть регіон:</label>
                         <select id="region" required>
-                            <option value="">Виберіть місто</option>
-                            <option value="kyiv">Київ</option>
-                            <option value="dnipro">Дніпро</option>
-                            <option value="ivano">Івано-Франківськ</option>
+                            <option value="">Виберіть регіон</option>
+                            <option value="kyiv">Північ</option>
+                            <option value="dnipro">Південь</option>
+                            <option value="ivano">Захід</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="power">Потужність установки (кВт):</label>
-                        <input type="range" id="power" min="1" max="10" value="1" class="power-slider">
+                        <input type="range" id="power" min="1" max="30" value="1" class="power-slider">
                         <div class="power-value">1 кВт</div>
                     </div>
                     <button id="calculate" class="calculate-button" disabled>Розрахувати</button>
@@ -591,6 +620,7 @@
                         <div class="result-label">Строк окупності</div>
                         <div class="result-value" id="payback">-</div>
                     </div>
+                    <p class="calculator-disclaimer">*Розрахунки є орієнтовними та базуються на середньостатистичних даних. Для отримання точної інформації залиште заявку або зателефонуйте за вказаним номером.</p>
                     <div class="calculator-cta">
                         <a href="#order" class="cta-button primary">Залишити заявку</a>
                     </div>
@@ -1068,13 +1098,22 @@
         });
 
         // Calculator functionality
-        const baseCostPerKw = 3899/0.590 + 1300 + 8000 + 2000; // Base cost per kW
         const tariff = 4.32; // Current electricity tariff in UAH/kWh
+        
+        // Real solar irradiation data for regions (kWh/m²/year)
         const regionData = {
-            kyiv: { gen: 1106, co2: 518.7 },
-            dnipro: { gen: 1287.3, co2: 604 },
-            ivano: { gen: 1183.4, co2: 555.1 }
+            kyiv: { gen: 1106, co2: 518.7 },    // Kyiv region - 1106 kWh/m²/year
+            dnipro: { gen: 1287.3, co2: 604 },  // Dnipro region - 1287.3 kWh/m²/year
+            ivano: { gen: 1183.4, co2: 555.1 }  // Ivano-Frankivsk region - 1183.4 kWh/m²/year
         };
+
+        // Real component costs
+        const panelCost = 3899; // Cost per 590W panel
+        const inverterCost = 8000; // Cost per 5kW inverter
+        const mountingCost = 2000; // Cost per kW for mounting system
+        const installationCost = 1300; // Cost per kW for installation
+        const cablesAndConnectors = 500; // Cost per kW for cables and connectors
+        const monitoringSystem = 3000; // One-time cost for monitoring system
 
         // DOM elements
         const regionSelect = document.getElementById('region');
@@ -1105,23 +1144,34 @@
 
             const data = regionData[region];
             
-            // Calculate values with economies of scale
+            // Calculate number of panels needed (590W panels)
+            const panelsNeeded = Math.ceil((power * 1000) / 590);
+            
+            // Calculate number of inverters needed (5kW units)
+            const invertersNeeded = Math.ceil(power / 5);
+            
+            // Calculate annual generation and CO2 reduction
             const generation = data.gen * power; // Annual generation in kWh
             const co2 = data.co2 * power; // Annual CO2 reduction in kg
             const savings = generation * tariff; // Annual savings in UAH
             
-            // Apply economies of scale to cost calculation
-            let scaleFactor;
-            if (power <= 3) {
-                scaleFactor = 1; // No discount for small systems
-            } else if (power <= 6) {
-                scaleFactor = 0.95; // 5% discount for medium systems
-            } else {
-                scaleFactor = 0.90; // 10% discount for large systems
-            }
+            // Calculate total system cost
+            const totalPanelCost = panelsNeeded * panelCost;
+            const totalInverterCost = invertersNeeded * inverterCost;
+            const totalMountingCost = power * mountingCost;
+            const totalInstallationCost = power * installationCost;
+            const totalCablesCost = power * cablesAndConnectors;
             
-            const cost = baseCostPerKw * power * scaleFactor; // Total system cost with scale factor
-            const payback = cost / savings;
+            // Total system cost including monitoring system
+            const totalCost = totalPanelCost + 
+                            totalInverterCost + 
+                            totalMountingCost + 
+                            totalInstallationCost + 
+                            totalCablesCost + 
+                            monitoringSystem;
+            
+            // Calculate payback period
+            const payback = totalCost / savings;
 
             // Update display with formatted numbers
             generationElement.textContent = `${Math.round(generation).toLocaleString()} кВт·ч`;
