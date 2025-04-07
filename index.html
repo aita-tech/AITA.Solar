@@ -1172,12 +1172,26 @@
             
             // Calculate payback period
             const payback = totalCost / savings;
+            
+            // Convert payback to years and months
+            const paybackYears = Math.floor(payback);
+            const paybackMonths = Math.round((payback - paybackYears) * 12);
+            
+            // Format payback period text
+            let paybackText = '';
+            if (paybackYears > 0) {
+                paybackText += `${paybackYears} ${paybackYears === 1 ? 'рік' : paybackYears < 5 ? 'роки' : 'років'}`;
+            }
+            if (paybackMonths > 0) {
+                if (paybackYears > 0) paybackText += ' і ';
+                paybackText += `${paybackMonths} ${paybackMonths === 1 ? 'місяць' : paybackMonths < 5 ? 'місяці' : 'місяців'}`;
+            }
 
             // Update display with formatted numbers
             generationElement.textContent = `${Math.round(generation).toLocaleString()} кВт·ч`;
             savingsElement.textContent = `${Math.round(savings).toLocaleString()} ₴`;
             co2Element.textContent = `${Math.round(co2).toLocaleString()} кг`;
-            paybackElement.textContent = `${payback.toFixed(1)} років`;
+            paybackElement.textContent = paybackText;
 
             // Only scroll if the results section is not fully visible
             const resultsSection = document.querySelector('.calculator-results');
