@@ -217,6 +217,188 @@
                 font-size: 1.8rem;
             }
         }
+
+        .partnership-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+        }
+
+        .partner-logo {
+            flex: 1;
+            max-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 60px;
+        }
+
+        .partnership-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-top: 1.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .partnership-logos {
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .partner-logo {
+                max-width: 140px;
+            }
+
+            .partner-logo-img {
+                max-height: 45px;
+            }
+
+            .partnership-text {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-logo h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4a90e2;
+        }
+
+        .footer-links i {
+            width: 20px;
+            color: #4a90e2;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .company-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .footer-logos {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                max-width: 120px;
+            }
+
+            .footer-logo img {
+                height: 35px;
+            }
+
+            .footer-logo h4 {
+                font-size: 1rem;
+            }
+
+            .footer-section {
+                text-align: left;
+            }
+
+            .footer-links a {
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -657,26 +839,57 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="Untitled-8.png" alt="AITA Solar Logo" class="logo-img">
-                    <h4>AITA Solar</h4>
+                <div class="footer-logos">
+                    <div class="footer-logo">
+                        <img src="Untitled-8.png" alt="AITA Solar Logo" class="logo-img">
+                    </div>
+                    <div class="footer-logo">
+                        <img src="Clars-Logo.png" alt="Clars Logo" class="logo-img">
+                    </div>
                 </div>
-                <p class="footer-description">Створюємо стале майбутнє</p>
+                <p class="footer-description">Продаж та консультації ми здійснюємо у партнерстві з компанією Clars — офіційним дистриб'ютором сонячних панелей Jinko та HT-SAAE в Україні.</p>
             </div>
             <div class="footer-section">
                 <h4>Контакти</h4>
                 <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> office@clars.com.ua</li>
-                    <li><i class="fas fa-phone"></i> +380 93 347 06 60</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Київ, Україна</li>
-                    <li><a href="https://t.me/ClarsSolarbot?start=w37787867" class="telegram-link"><i class="fab fa-telegram"></i> Telegram</a></li>
-                    <li><a href="https://www.instagram.com/solar.aita/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li>
+                        <a href="tel:+380933470660">
+                            <i class="fas fa-phone"></i>
+                            +380 93 347 06 60
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:office@clars.com.ua">
+                            <i class="fas fa-envelope"></i>
+                            office@clars.com.ua
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Київ, Україна
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Соціальні мережі</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://t.me/ClarsSolarbot?start=w37787867" class="telegram-link">
+                            <i class="fab fa-telegram"></i>
+                            Telegram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/solar.aita/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="company-description">AITA Solar — офіційний постачальник сонячних панелей Jinko Solar та HT-SAAE в Україні. Продаж, консультації та доставка по всій країні</p>
-            <p class="copyright">&copy; 2025 AITA Solar Всі права захищено.</p>
+            <p class="copyright">&copy; 2025 AITA Solar</p>
         </div>
     </footer>
 
