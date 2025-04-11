@@ -9,7 +9,7 @@
     })(window,document,'script','dataLayer','GTM-TGZCB4K3');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Сонячні панелі Jinko та HT-SAAE - Енергія Майбутнього</title>
     <meta name="description" content="Сонячні панелі Jinko та HT-SAAE за 3899 грн. Доставка по Україні. Гарантія 12 років. Економія до 60% на електроенергії вже з першого місяця.">
     <meta name="keywords" content="сонячні панелі, Jinko Solar, HT-SAAE, сонячна енергія, відновлювана енергія, Україна">
@@ -40,6 +40,239 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .hero {
+            background-image: url('background.avif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding: 120px 2rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .price-counter-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .discount-badge {
+            background: #dc3545;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.25rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .new-price-box, .old-price-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .price-label {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .price-amount {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .new-price {
+            color: #28a745;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .currency {
+            color: #28a745;
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .old-price {
+            color: #dc3545;
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .price-display {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .new-price {
+                font-size: 2.8rem;
+            }
+
+            .old-price {
+                font-size: 1.8rem;
+            }
+
+            .discount-badge {
+                padding: 0.5rem 0.75rem;
+                font-size: 1.1rem;
+                top: -8px;
+                right: -8px;
+            }
+        }
+
+        .countdown-timer {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .timer-label {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .timer-block {
+            text-align: center;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            min-width: 80px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .timer-number {
+            color: #dc3545;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timer-label-small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .hero-main-subtitle {
+            color: #4a90e2;
+            font-size: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .hero-description {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 1rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .price-counter-container {
+                padding: 1rem;
+            }
+
+            .timer-display {
+                gap: 1rem;
+            }
+
+            .timer-block {
+                min-width: 60px;
+            }
+
+            .timer-number {
+                font-size: 2rem;
+            }
+
+            .new-price {
+                font-size: 2.5rem;
+            }
+
+            .old-price {
+                font-size: 1.8rem;
+            }
+
+            .hero-main-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
         .contact-form textarea {
             width: 100%;
             min-height: 120px;
@@ -67,155 +300,6 @@
         .lead-form {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 4rem 0;
-        }
-
-        /* Price Counter Styles */
-        .price-counter-container {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .price-display {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            position: relative;
-            gap: 2rem;
-        }
-
-        .new-price-box {
-            text-align: center;
-            flex: 1;
-        }
-
-        .price-label {
-            display: block;
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .new-price {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #28a745;
-            line-height: 1;
-        }
-
-        .currency {
-            font-size: 1.8rem;
-            color: #28a745;
-            font-weight: 600;
-        }
-
-        .old-price-box {
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #dc3545;
-            font-size: 2rem;
-            font-weight: 600;
-            opacity: 1;
-        }
-
-        .discount-badge {
-            background-color: #dc3545;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            transform: rotate(5deg);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .countdown-timer {
-            background: rgba(248, 249, 250, 0.8);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .timer-label {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .timer-display {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .timer-block {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            min-width: 80px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .timer-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #dc3545;
-            display: block;
-            line-height: 1;
-        }
-
-        .timer-label-small {
-            font-size: 0.9rem;
-            color: #333;
-            display: block;
-            margin-top: 0.25rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .price-display {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .discount-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-                transform: none;
-                margin-top: 1rem;
-            }
-
-            .timer-display {
-                flex-wrap: wrap;
-            }
-
-            .timer-block {
-                min-width: 60px;
-            }
-
-            .new-price {
-                font-size: 2.2rem;
-            }
-
-            .old-price {
-                font-size: 1.8rem;
-            }
         }
 
         .partnership-logos {
@@ -327,15 +411,18 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
         }
 
-        .footer-links a {
+        .footer-links a, .footer-links div {
             color: #666;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
         }
 
@@ -344,8 +431,62 @@
         }
 
         .footer-links i {
-            width: 20px;
+            width: 24px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links .location-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .footer-links .social-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links .social-icon:hover {
             color: #4a90e2;
+        }
+
+        .footer-links .social-icon i.fab {
+            font-size: 1.4rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section h4 {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-links li {
+                margin-bottom: 1.2rem;
+            }
+
+            .footer-links a, .footer-links div {
+                font-size: 1rem;
+                gap: 0.8rem;
+            }
+
+            .footer-links i {
+                width: 20px;
+                font-size: 1.1rem;
+            }
         }
 
         .footer-bottom {
@@ -438,7 +579,7 @@
     <header>
         <nav>
             <a href="#" class="logo">
-                <img src="Untitled-8.png" alt="Логотип AITA Solar" class="logo-img" loading="eager">
+                <img src="Untitled-8.webp" alt="Логотип AITA Solar" class="logo-img" loading="eager">
                 <span>AITA Solar</span>
             </a>
             <div class="nav-right">
@@ -468,35 +609,37 @@
             <div class="hero-text">
                 <h1>Сонячні панелі Jinko та HT-SAAE</h1>
                 <div class="price-counter-container">
+                    <div class="discount-badge">-15%</div>
                     <div class="price-display">
                         <div class="new-price-box">
                             <span class="price-label">Нова ціна:</span>
-                            <span class="new-price">3899</span>
-                            <span class="currency">грн</span>
+                            <div class="price-amount">
+                                <span class="new-price">3899</span>
+                                <span class="currency">грн</span>
+                            </div>
                         </div>
                         <div class="old-price-box">
                             <span class="price-label">Стара ціна:</span>
                             <span class="old-price">4600 грн</span>
                         </div>
-                        <div class="discount-badge">-15%</div>
                     </div>
                     <div class="countdown-timer">
                         <div class="timer-label">До кінця акції залишилось:</div>
                         <div class="timer-display">
                             <div class="timer-block">
-                                <span class="timer-number" id="days">15</span>
+                                <span class="timer-number" id="days">11</span>
                                 <span class="timer-label-small">днів</span>
                             </div>
                             <div class="timer-block">
-                                <span class="timer-number" id="hours">00</span>
+                                <span class="timer-number" id="hours">23</span>
                                 <span class="timer-label-small">годин</span>
                             </div>
                             <div class="timer-block">
-                                <span class="timer-number" id="minutes">00</span>
+                                <span class="timer-number" id="minutes">36</span>
                                 <span class="timer-label-small">хвилин</span>
                             </div>
                             <div class="timer-block">
-                                <span class="timer-number" id="seconds">00</span>
+                                <span class="timer-number" id="seconds">48</span>
                                 <span class="timer-label-small">секунд</span>
                             </div>
                         </div>
@@ -546,7 +689,7 @@
                     <a href="#order" class="cta-button primary">Замовити</a>
                 </div>
                 <div class="product-image">
-                    <img src="Jinko Solar Panels.png" alt="Сонячні панелі Jinko Solar - високоефективні двосторонні модулі з технологією N-type" loading="lazy">
+                    <img src="Jinko Solar Panels.webp" alt="Сонячні панелі Jinko Solar - високоефективні двосторонні модулі з технологією N-type" loading="lazy">
                 </div>
             </div>
         </div>
@@ -575,7 +718,7 @@
                     <a href="#order" class="cta-button primary">Замовити</a>
                 </div>
                 <div class="product-image">
-                    <img src="Untitled-6.png" alt="Сонячні панелі HT-SAAE - потужні модулі з технологією Half-Cell та двосторонньою генерацією" loading="lazy">
+                    <img src="ht saae.webp" alt="Сонячні панелі HT-SAAE - потужні модулі з технологією Half-Cell та двосторонньою генерацією" loading="lazy">
                 </div>
             </div>
         </div>
@@ -871,10 +1014,10 @@
             <div class="footer-section">
                 <div class="footer-logos">
                     <div class="footer-logo">
-                        <img src="Untitled-8.png" alt="AITA Solar Logo" class="logo-img">
+                        <img src="Untitled-8.webp" alt="AITA Solar Logo" class="logo-img">
                     </div>
                     <div class="footer-logo">
-                        <img src="Clars-Logo.png" alt="Clars Logo" class="logo-img">
+                        <img src="Clars-Logo.webp" alt="Clars Logo" class="logo-img">
                     </div>
                 </div>
                 <p class="footer-description">Продаж та консультації ми здійснюємо у партнерстві з компанією Clars — офіційним дистриб'ютором сонячних панелей Jinko та HT-SAAE в Україні.</p>
@@ -895,8 +1038,10 @@
                         </a>
                     </li>
                     <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        Київ, Україна
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Київ, Україна
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -904,13 +1049,13 @@
                 <h4>Соціальні мережі</h4>
                 <ul class="footer-links">
                     <li>
-                        <a href="https://t.me/ClarsSolarbot?start=w37787867" class="telegram-link">
+                        <a href="https://t.me/ClarsSolarbot?start=w37787867" class="social-icon">
                             <i class="fab fa-telegram"></i>
                             Telegram
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/solar.aita/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/solar.aita/" target="_blank" rel="noopener noreferrer" class="social-icon">
                             <i class="fab fa-instagram"></i>
                             Instagram
                         </a>
@@ -919,20 +1064,30 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="copyright">&copy; 2025 AITA Solar</p>
+            <p class="copyright">&copy; 2024 AITA Solar</p>
         </div>
     </footer>
 
     <script>
         // Countdown Timer
         function updateCountdown() {
-            // Set the end date (15 days from now)
-            const endDate = new Date();
-            endDate.setDate(endDate.getDate() + 15);
-            endDate.setHours(23, 59, 59, 999); // Set to end of day
-            
+            // Set base date to 2024
             const now = new Date();
-            const diff = endDate - now;
+            const currentHours = now.getHours();
+            const currentMinutes = now.getMinutes();
+            const currentSeconds = now.getSeconds();
+            
+            // Create reference date in 2024
+            const referenceDate = new Date(2024, 3, 8, 17, 30, 0); // April 8th, 2024, 17:30:00
+            
+            // Set current time to reference date
+            const currentDate = new Date(2024, 3, 8 + 3, currentHours, currentMinutes, currentSeconds); // April 11th (3 days passed)
+            
+            // Set end date (15 days from April 8th)
+            const endDate = new Date(2024, 3, 23, 17, 30, 0); // April 23rd, 2024, 17:30:00
+            
+            // Calculate remaining time
+            const diff = endDate - currentDate;
 
             if (diff <= 0) {
                 clearInterval(timerInterval);
@@ -955,7 +1110,7 @@
             const timerNumbers = document.querySelectorAll('.timer-number');
             timerNumbers.forEach(number => {
                 number.classList.add('animate');
-                setTimeout(() => number.classList.remove('animate'), 1000);
+                setTimeout(() => number.classList.remove('animate'), 500);
             });
         }
 
@@ -964,7 +1119,7 @@
         style.textContent = `
             @keyframes pulse {
                 0% { transform: scale(1); }
-                50% { transform: scale(1.1); }
+                50% { transform: scale(1.05); }
                 100% { transform: scale(1); }
             }
             .timer-number.animate {
@@ -973,9 +1128,9 @@
         `;
         document.head.appendChild(style);
 
-        // Update the countdown every second
+        // Initial call and set interval
+        updateCountdown();
         const timerInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
 
         // Form submission handling
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
