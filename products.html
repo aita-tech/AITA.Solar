@@ -363,6 +363,103 @@
                 height: 35px;
             }
         }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-container > p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .telegram-btn {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: var(--primary-color) !important;
+            color: #fff !important;
+            border: none !important;
+        }
+
+        .telegram-btn:hover {
+            background-color: var(--primary-dark) !important;
+            color: #fff !important;
+        }
+
+        .telegram-btn i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 3rem 1rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -380,7 +477,7 @@
             <div class="nav-right">
                 <div class="nav-links">
                     <a href="products.html">Продукти</a>
-                    <a href="/#contact-section">Контакти</a>
+                    <a href="#contact-section">Контакти</a>
                     <a href="/#calculator">Калькулятор вигоди</a>
                     <a href="tel:+380933470660" class="nav-phone">
                         <i class="fas fa-phone"></i>
@@ -537,6 +634,24 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact-section" class="contact-section">
+        <div class="contact-container">
+            <h2>Зв'яжіться з нами</h2>
+            <p>Наші фахівці готові відповісти на всі ваші запитання та допомогти з вибором оптимального рішення для вашого проєкту.</p>
+            <div class="contact-info">
+                <a href="tel:+380933470660" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    +380 93 347 06 60
+                </a>
+                <a href="https://t.me/ClarsSolarbot?start=w37787867" class="contact-item telegram-btn">
+                    <i class="fab fa-telegram"></i>
+                    Telegram
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -601,5 +716,39 @@
         <i class="fab fa-telegram-plane"></i>
         Зв'язатися з нами
     </a>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            const body = document.body;
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                body.classList.toggle('nav-active');
+                this.setAttribute('aria-expanded', nav.classList.contains('active'));
+            });
+
+            // Close menu when clicking on any nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    body.classList.remove('nav-active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!nav.contains(event.target) && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    body.classList.remove('nav-active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
