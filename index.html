@@ -35,12 +35,23 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
     
-    <link rel="icon" type="image/png" href="Untitled-8.png">
+    <link rel="icon" type="image/webp" href="Untitled-8.webp">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -569,6 +580,56 @@
         .result-item {
             margin-bottom: 1rem;
         }
+
+        .product-info h2 a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .product-info h2 a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .product-info h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .product-info h3 a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .spec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .spec-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .spec-link i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .spec-link:hover i {
+            transform: translateX(3px);
+        }
     </style>
 </head>
 <body>
@@ -584,7 +645,7 @@
             </a>
             <div class="nav-right">
                 <div class="nav-links">
-                    <a href="#products">Продукти</a>
+                    <a href="products.html">Продукти</a>
                     <a href="#contact-section">Контакти</a>
                     <a href="#calculator">Калькулятор вигоди</a>
                     <a href="tel:+380933470660" class="nav-phone">
@@ -672,13 +733,13 @@
             <div class="product-content">
                 <div class="product-info">
                     <h2>Jinko Solar</h2>
-                    <h3>Tiger Neo N-type</h3>
+                    <h3><a href="products.html#tiger-neo-n-type" class="product-link">Tiger Neo N-type</a></h3>
                     <div class="product-specs">
                         <span class="model">Модель: JKM550N-72HL4-V</span>
                         <span class="power">Потужність: 550 Вт</span>
-                        <a href="https://drive.google.com/file/d/1oAIphgIqpu-hP8_sINgjti2cRxBtIapt/view?usp=drive_link" class="spec-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i>
-                            Завантажити специфікацію
+                        <a href="products.html#tiger-neo-n-type" class="spec-link" aria-label="Дізнатися більше про Tiger Neo N-type">
+                            <i class="fas fa-arrow-right"></i>
+                            Дізнатися більше
                         </a>
                     </div>
                     <p class="product-description">Двостороння сонячна панель з технологією N-type, антирефлексійним склом і підвищеною ефективністю до 22%. Ідеально підходить для побудови домашніх та промислових СЕС.</p>
@@ -701,13 +762,13 @@
             <div class="product-content">
                 <div class="product-info">
                     <h2>HT-SAAE</h2>
-                    <h3>HT54-18X</h3>
+                    <h3><a href="products.html#htsaee-x-series" class="product-link">HT54-18X</a></h3>
                     <div class="product-specs">
                         <span class="model">Модель: HT54-18X</span>
                         <span class="power">Потужність: 545 Вт</span>
-                        <a href="https://drive.google.com/file/d/19l4F3KQ1kiTHCtVB5PkhBkay2JfqV4Rc/view?usp=sharing" class="spec-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i>
-                            Завантажити специфікацію
+                        <a href="products.html#htsaee-x-series" class="spec-link" aria-label="Дізнатися більше про HT-SAAE X-Series">
+                            <i class="fas fa-arrow-right"></i>
+                            Дізнатися більше
                         </a>
                     </div>
                     <p class="product-description">Потужна сонячна панель для дому та бізнесу з технологією Half-Cell та двосторонньою генерацією. Надійність, перевірена космічною галуззю.</p>

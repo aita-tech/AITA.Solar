@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TGZCB4K3');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Наші сонячні панелі</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+    
+    <link rel="icon" type="image/webp" href="Untitled-8.webp">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Reuse existing styles from index.html */
+        .products-hero {
+            background-image: url('background.avif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 2rem 2rem;
+        }
+
+        .products-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .products-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .products-hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .products-hero p {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .products-nav {
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .products-nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .products-nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .products-nav-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .product-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .product-info h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .product-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .product-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .spec-item {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .product-specs h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-buttons .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .product-buttons .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .product-buttons .btn-secondary {
+            background-color: #f8f9fa;
+            color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .product-buttons .btn-secondary:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .product-buttons .btn-secondary i {
+            font-size: 1.2rem;
+        }
+
+        /* Sticky Telegram Button */
+        .sticky-telegram {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        .sticky-telegram i {
+            font-size: 20px;
+        }
+
+        .sticky-telegram:hover {
+            background-color: #006699;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-buttons {
+                flex-direction: column;
+            }
+
+            .sticky-telegram {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .sticky-telegram i {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGZCB4K3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="Untitled-8.webp" alt="Логотип AITA Solar" class="logo-img" loading="eager">
+                <span>AITA Solar</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="products.html">Продукти</a>
+                    <a href="/#contact-section">Контакти</a>
+                    <a href="/#calculator">Калькулятор вигоди</a>
+                    <a href="tel:+380933470660" class="nav-phone">
+                        <i class="fas fa-phone"></i>
+                        +380 93 347 06 60
+                    </a>
+                    <a href="https://t.me/ClarsSolarbot?start=w37787867" class="telegram-link">
+                        <i class="fab fa-telegram"></i>
+                        Telegram
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Відкрити меню" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="products-hero">
+        <div class="products-hero-content">
+            <h1>Наші сонячні панелі</h1>
+            <p>Високоякісні сонячні панелі від провідних виробників для вашого дому та бізнесу</p>
+        </div>
+    </section>
+
+    <!-- Products Navigation -->
+    <nav class="products-nav">
+        <ul class="products-nav-list">
+            <li>
+                <a href="#tiger-neo-n-type" class="products-nav-link">
+                    <i class="fas fa-solar-panel"></i>
+                    Tiger Neo N-type
+                </a>
+            </li>
+            <li>
+                <a href="#htsaee-x-series" class="products-nav-link">
+                    <i class="fas fa-solar-panel"></i>
+                    HTSAEE X-series
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Single instance of product sections -->
+    <section id="tiger-neo-n-type" class="product-section">
+        <div class="product-content">
+            <div class="product-info">
+                <h2>Tiger Neo N-type</h2>
+                <p class="product-description">Двостороння сонячна панель з технологією N-type, антирефлексійним склом і підвищеною ефективністю. Модель 72HL4-BDV потужністю 575-600 Вт ідеально підходить для побудови домашніх та промислових СЕС.</p>
+                
+                <div class="product-specs">
+                    <h3>Технічні характеристики:</h3>
+                    <div class="specs-grid">
+                        <span class="spec-item">
+                            <strong>Модель:</strong> JKM575-600N-72HL4-BDV
+                        </span>
+                        <span class="spec-item">
+                            <strong>Потужність:</strong> 575-600 Вт
+                        </span>
+                        <span class="spec-item">
+                            <strong>Ефективність:</strong> до 23.93%
+                        </span>
+                        <span class="spec-item">
+                            <strong>Розміри:</strong> 2278 × 1134 × 30 мм
+                        </span>
+                        <span class="spec-item">
+                            <strong>Вага:</strong> 31.5 кг
+                        </span>
+                        <span class="spec-item">
+                            <strong>Клас захисту:</strong> IP68
+                        </span>
+                    </div>
+
+                    <h3>Ключові особливості:</h3>
+                    <ul class="features-list">
+                        <li><strong>N-Type Technology:</strong> Покращена продуктивність при низькому освітленні та менша деградація.</li>
+                        <li><strong>HOT 3.0 Technology:</strong> Підвищена надійність та ефективність.</li>
+                        <li><strong>Двостороння генерація:</strong> Додаткова генерація за рахунок відбитого світла.</li>
+                        <li><strong>Механічна міцність:</strong> Витримує навантаження до 5400 Па спереду та 2400 Па ззаду.</li>
+                        <li><strong>Гарантія:</strong> 12 років на продукт, 30 років на потужність.</li>
+                    </ul>
+                </div>
+                
+                <div class="product-buttons">
+                    <a href="index.html#order" class="btn-primary" aria-label="Замовити Tiger Neo N-type">
+                        <i class="fas fa-shopping-cart"></i>
+                        Замовити
+                    </a>
+                    <a href="https://drive.google.com/file/d/1oAIphgIqpu-hP8_sINgjti2cRxBtIapt/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Завантажити специфікацію Tiger Neo N-type">
+                        <i class="fas fa-download"></i>
+                        Завантажити специфікацію
+                    </a>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="Jinko Solar Panels.webp" alt="Сонячні панелі Tiger Neo N-type" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="htsaee-x-series" class="product-section">
+        <div class="product-content">
+            <div class="product-info">
+                <h2>HTSAEE X-series</h2>
+                <p class="product-description">Високоефективна сонячна панель HT72-18X(ND)-F з технологією Half-Cell та двосторонньою генерацією. Надійність та якість, підтверджені космічною галуззю.</p>
+                
+                <div class="product-specs">
+                    <h3>Технічні характеристики:</h3>
+                    <div class="specs-grid">
+                        <span class="spec-item">
+                            <strong>Модель:</strong> HT72-18X(ND)-F
+                        </span>
+                        <span class="spec-item">
+                            <strong>Потужність:</strong> 585-605 Вт
+                        </span>
+                        <span class="spec-item">
+                            <strong>Ефективність:</strong> до 24.6%
+                        </span>
+                        <span class="spec-item">
+                            <strong>Розміри:</strong> 2278 × 1134 × 30 мм
+                        </span>
+                        <span class="spec-item">
+                            <strong>Вага:</strong> 32.5 ±0.5 кг
+                        </span>
+                        <span class="spec-item">
+                            <strong>Клас захисту:</strong> IP68
+                        </span>
+                    </div>
+
+                    <h3>Ключові особливості:</h3>
+                    <ul class="features-list">
+                        <li><strong>TOPCon технологія:</strong> Оптимізована структура для максимальної ефективності.</li>
+                        <li><strong>Half-Cell технологія:</strong> Зменшення теплових втрат та підвищення загальної потужності.</li>
+                        <li><strong>Двостороння генерація:</strong> Додаткова генерація до 25% з тильної сторони.</li>
+                        <li><strong>Висока надійність:</strong> Стійкість до PID ефекту та мікротріщин.</li>
+                        <li><strong>Гарантія:</strong> 15 років на продукт, 30 років на потужність.</li>
+                    </ul>
+                </div>
+                
+                <div class="product-buttons">
+                    <a href="index.html#order" class="btn-primary" aria-label="Замовити HTSAEE X-series">
+                        <i class="fas fa-shopping-cart"></i>
+                        Замовити
+                    </a>
+                    <a href="https://drive.google.com/file/d/1kDtTHSwxBG4LdjqwRJWN-3TWL75GFKlv/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Завантажити специфікацію HTSAEE X-series">
+                        <i class="fas fa-download"></i>
+                        Завантажити специфікацію
+                    </a>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="ht saae.webp" alt="Сонячні панелі HTSAEE X-series" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Existing footer content -->
+    </footer>
+
+    <!-- Sticky Telegram Button -->
+    <a href="https://t.me/ClarsSolarbot?start=w37787867" class="sticky-telegram" target="_blank" rel="noopener noreferrer" aria-label="Зв'язатися через Telegram">
+        <i class="fab fa-telegram-plane"></i>
+        Зв'язатися з нами
+    </a>
+</body>
+</html> 
