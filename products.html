@@ -328,6 +328,41 @@
                 font-size: 18px;
             }
         }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .footer-logos {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                max-width: 120px;
+            }
+
+            .footer-logo img {
+                height: 35px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -503,7 +538,62 @@
     </section>
 
     <footer>
-        <!-- Existing footer content -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logos">
+                    <div class="footer-logo">
+                        <img src="Untitled-8.webp" alt="AITA Solar Logo" class="logo-img">
+                    </div>
+                    <div class="footer-logo">
+                        <img src="Clars-Logo.webp" alt="Clars Logo" class="logo-img">
+                    </div>
+                </div>
+                <p class="footer-description">Продаж та консультації ми здійснюємо у партнерстві з компанією Clars — офіційним дистриб'ютором сонячних панелей Jinko та HT-SAAE в Україні.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакти</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="tel:+380933470660">
+                            <i class="fas fa-phone"></i>
+                            +380 93 347 06 60
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:office@clars.com.ua">
+                            <i class="fas fa-envelope"></i>
+                            office@clars.com.ua
+                        </a>
+                    </li>
+                    <li>
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Київ, Україна
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Соціальні мережі</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://t.me/ClarsSolarbot?start=w37787867" class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                            Telegram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/solar.aita/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2024 AITA Solar</p>
+        </div>
     </footer>
 
     <!-- Sticky Telegram Button -->
