@@ -630,6 +630,121 @@
         .spec-link:hover i {
             transform: translateX(3px);
         }
+
+        /* Q&A Section Styles */
+        .qa-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .qa-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .qa-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+        }
+
+        .qa-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .qa-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .qa-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .qa-question:hover {
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+
+        .qa-question:focus {
+            outline: none;
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+
+        .qa-question::selection {
+            background: transparent;
+        }
+
+        .qa-question::-moz-selection {
+            background: transparent;
+        }
+
+        .qa-question h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        .qa-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .qa-toggle[aria-expanded="true"] {
+            transform: rotate(45deg);
+        }
+
+        .qa-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .qa-answer p {
+            margin: 0;
+            padding-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .qa-item.active .qa-answer {
+            max-height: 500px;
+            padding: 0 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .qa-section {
+                padding: 3rem 1rem;
+            }
+
+            .qa-container h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .qa-question h3 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1052,6 +1167,86 @@
         </div>
     </section>
 
+    <!-- Q&A Section -->
+    <section class="qa-section" id="qa">
+        <div class="qa-container">
+            <h2>Часті запитання</h2>
+            <div class="qa-grid">
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Хто буде доставляти мої сонячні панелі?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Доставку та зберігання панелей здійснює наша партнерська компанія Clars — офіційний дистриб'ютор Jinko та HT-SAAE в Україні. Clars має власні склади по всій країні, що гарантує швидку доставку та безпечне зберігання панелей. Ви можете отримати панелі на Новій Пошті або замовити доставку за адресою. Всі панелі проходять перевірку перед відправкою та мають повний пакет документів.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Як розрахувати потрібну кількість панелей для мого будинку?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Для розрахунку потрібної кількості панелей потрібно врахувати кілька факторів: середнє споживання електроенергії, площу даху та його орієнтацію, регіон проживання. Для точного розрахунку рекомендуємо залишити заявку — наші спеціалісти проаналізують ваші потреби та запропонують оптимальне рішення. А для приблизного розрахунку терміну окупності ви можете використати наш калькулятор на сайті.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Як довго окупаються сонячні панелі?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Термін окупності залежить від багатьох факторів: потужності системи, регіону, тарифів на електроенергію та споживання. Ви можете приблизно розрахувати термін окупності за допомогою нашого калькулятора на сайті. В середньому, сонячна електростанція окупається за 2-4 роки. Після цього ви отримуєте безкоштовну електроенергію протягом 25+ років.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Чи потрібно отримувати дозволи для встановлення сонячних панелей?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Для встановлення сонячних панелей на приватному будинку потужністю до 30 кВт не потрібно отримувати дозволи. Достатньо повідомити про це місцеву енергокомпанію. Для комерційних об'єктів може знадобитися додаткова документація. Наші спеціалісти допоможуть вам з усіма необхідними документами та узгодженнями.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Як працює гарантія на сонячні панелі?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>На всі панелі Jinko та HT-SAAE діє гарантія 12 років. Гарантія покриває виробничі дефекти та зниження потужності. Якщо протягом гарантійного терміну потужність панелі знизиться більше ніж на 30%, ви отримаєте нову панель. Для активації гарантії потрібно зберегти чек про покупку та заповнити гарантійну картку, яку ми надаємо разом з панелями.</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" role="button" tabindex="0">
+                        <h3>Як доглядати за сонячними панелями?</h3>
+                        <button class="qa-toggle" aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Сонячні панелі потребують мінімального догляду. Достатньо періодично очищати їх від пилу та снігу. Панелі мають спеціальне покриття, яке відштовхує бруд, тому дощ зазвичай самостійно очищає поверхню. Рекомендується проводити огляд системи раз на рік для перевірки кріплень та з'єднань. У разі потреба ми надаємо послуги професійного обслуговування.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact-section">
         <div class="contact-container">
@@ -1430,6 +1625,36 @@
                     behavior: 'smooth'
                 });
             }
+        });
+
+        // Q&A Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const qaItems = document.querySelectorAll('.qa-item');
+            
+            qaItems.forEach(item => {
+                const question = item.querySelector('.qa-question');
+                const toggle = item.querySelector('.qa-toggle');
+                const answer = item.querySelector('.qa-answer');
+                
+                question.addEventListener('click', () => {
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !isExpanded);
+                    item.classList.toggle('active');
+                    
+                    // Update icon
+                    const icon = toggle.querySelector('i');
+                    icon.classList.toggle('fa-plus');
+                    icon.classList.toggle('fa-minus');
+                });
+
+                // Handle keyboard navigation
+                question.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        question.click();
+                    }
+                });
+            });
         });
     </script>
 </body>
